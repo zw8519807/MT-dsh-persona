@@ -1,0 +1,67 @@
+{
+  "name": "dsh-persona",
+  "version": "0.2.0",
+  "description": "Persona management for DeepSeek Harness: five editable persona blocks (identity / style / principles / state / user profile) injected into every session's system prompt, with a sidebar editing panel, one-click persona presets, and an append-only change history.",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/store.js",
+    "client.js",
+    "locale/zh.json",
+    "locale/en.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "package.json",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "test"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "persona",
+    "system-prompt",
+    "character",
+    "deepseek-harness"
+  ],
+  "author": {
+    "name": "zw8519807"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zw8519807/MT-dsh-persona.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zw8519807/MT-dsh-persona/issues"
+  },
+  "homepage": "https://github.com/zw8519807/MT-dsh-persona#readme",
+  "scripts": {
+    "test": "node test/smoke.mjs && node test/presets-smoke.mjs && node test/host-smoke.mjs"
+  },
+  "dsh": {
+    "platform": "host",
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

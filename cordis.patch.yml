@@ -1,0 +1,4 @@
+# dsh-persona bundle patch — 必须是顶层 YAML 数组（映射写法会被静默 skip）
+- insert:
+    - id: dsh-persona
+      name: dsh-persona
